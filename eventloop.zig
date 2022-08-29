@@ -1,6 +1,6 @@
 const std = @import("std");
 
-// used to get monotonic time, as opposed to wall-clock time
+
 var timer: ?std.time.Timer = null;
 fn nanotime() u64 {
     if (timer == null) {
@@ -9,14 +9,13 @@ fn nanotime() u64 {
     return timer.?.read();
 }
 
-// holds the frame, and the nanotime of
-// when the frame should be resumed
+
 const Delay = struct {
     frame: anyframe,
     expires: u64,
 };
 
-// suspend the caller, to be resumed later by the event loop
+
 fn waitForTime(time_ms: u64) void {
     suspend timer_queue.add(Delay{
         .frame = @frame(),
