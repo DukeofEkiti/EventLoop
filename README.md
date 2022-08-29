@@ -1,3 +1,5 @@
 # EventLoop
-A basic event loop implementation in Zig 
+A basic event loop implementation in Zig from
+Ziglearn.org
+
 
